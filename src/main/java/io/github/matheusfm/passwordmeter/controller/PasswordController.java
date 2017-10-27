@@ -1,16 +1,20 @@
 package io.github.matheusfm.passwordmeter.controller;
 
 import io.github.matheusfm.passwordmeter.model.PasswordStrength;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import io.github.matheusfm.passwordmeter.service.PasswordMeterService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
-
-@Controller
+@RestController
 public class PasswordController {
-    @GetMapping("/")
-    public String getPasswordView(Map<String, Object> model) {
-        model.put("strength", new PasswordStrength("0%", "Muito curta"));
-        return "password";
+    @Autowired
+    private PasswordMeterService service;
+
+    @PostMapping("/password")
+    public PasswordStrength measurePassword(@RequestBody String password) {
+        return service.measureStrength(password);
     }
+
 }

@@ -37,7 +37,16 @@ public class PasswordMeter {
             int bonus = m.rate(n, len);
             score += bonus;
         }
-        return score;
+        return checkRange(score);
+    }
+
+    private int checkRange(int score) {
+        if (score < 0)
+            return 0;
+        else if (score > 100)
+            return 100;
+        else
+            return score;
     }
 
     public PasswordStrength measure(String password) {

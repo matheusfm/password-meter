@@ -28,6 +28,8 @@ public class RepeatCharactersMetric implements Metric {
 
     @Override
     public int rate(int n, int len) {
-        return -nRepInc.intValue();
+        int rate = -nRepInc.intValue();
+        nRepInc = 0d;
+        return rate;
     }
 }

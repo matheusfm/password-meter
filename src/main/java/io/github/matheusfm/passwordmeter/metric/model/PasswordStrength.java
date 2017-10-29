@@ -4,12 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
+@Getter
 public class PasswordStrength {
-    @Getter
     private String score;
-    private Complexity complexity;
-
-    public String getComplexity() {
-        return complexity.getName();
-    }
+    private String complexity;
 }

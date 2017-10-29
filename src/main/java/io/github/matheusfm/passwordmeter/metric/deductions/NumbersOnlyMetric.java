@@ -3,7 +3,7 @@ package io.github.matheusfm.passwordmeter.metric.deductions;
 import io.github.matheusfm.passwordmeter.metric.model.Metric;
 
 public class NumbersOnlyMetric implements Metric {
-    private static final String REGEX = "^\\d*$";
+    private static final String REGEX = "^[\\d\\s]*$";
 
     @Override
     public int count(String password) {

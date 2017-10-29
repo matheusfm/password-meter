@@ -10,7 +10,7 @@ public class ConsecutiveNumbersMetric implements Metric {
 
     @Override
     public int count(String password) {
-        Matcher matcher = REGEX.matcher(password);
+        Matcher matcher = REGEX.matcher(password.replaceAll("\\s", ""));
         int count = 0;
         while (matcher.find())
             count += (matcher.group().length() - 1);

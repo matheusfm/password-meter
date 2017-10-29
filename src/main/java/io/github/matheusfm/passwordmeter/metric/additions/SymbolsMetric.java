@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SymbolsMetric implements Metric {
-    private static final Pattern REGEX = Pattern.compile("([^a-zA-Z\\d]+)");
+    private static final Pattern REGEX = Pattern.compile("([^a-zA-Z\\d\\s]+)");
 
     @Override
     public int count(String password) {

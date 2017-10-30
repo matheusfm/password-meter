@@ -19,7 +19,8 @@ public class UppercaseLettersMetric implements Metric {
 
     @Override
     public int rate(int n, int len) {
-        if (n == 0) return 0;
-        return +((len - n) * 2);
+        if (n > 0 && n < len)
+            return +((len - n) * 2);
+        return 0;
     }
 }

@@ -19,6 +19,8 @@ public class NumbersMetric implements Metric {
 
     @Override
     public int rate(int n, int len) {
-        return (n * 4);
+        if (n > 0 && n < len)
+            return (n * 4);
+        return 0;
     }
 }
